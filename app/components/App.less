@@ -1,0 +1,117 @@
+@import '../styles/mixins.less';
+@import '../styles/transition-group.less';
+@import '../styles/func.less';
+@import '../styles/animation.less';
+
+@font-face {
+	font-family: "Material Design Icons";
+	src: url("../fonts/materialdesignicons-webfont.eot");
+	src: url("../fonts/materialdesignicons-webfont.eot") format("embedded-opentype"), url("../fonts/materialdesignicons-webfont.woff2") format("woff2"), url("../fonts/materialdesignicons-webfont.woff") format("woff"), url("../fonts/materialdesignicons-webfont.ttf") format("truetype"), url("../fonts/materialdesignicons-webfont.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Roboto-Medium";
+	src: url("../fonts/Roboto-Medium.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	font-family: "Roboto-Medium";
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.cn{
+	font-family: "微软雅黑";
+}
+
+html, body, #app {
+	height: 100%;
+	width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+.mdi {
+	display: inline-block;
+	font: normal normal normal 24px/1 "Material Design Icons";
+	font-size: inherit;
+	text-rendering: auto;
+	transform: translate(0, 0);
+	&.mdi-grid:before {
+		content: "\f2C1";
+	}
+	&.mdi-user:before{
+		content: "\f004";
+	}
+	&.mdi-blogger:before{
+		content: "\f0ae";
+	}
+	&.mdi-tag:before{
+		content: "\f4f9";
+	}
+	&.mdi-account-search:before{
+		content: "\f016";
+	}
+	&.mdi-plus:before{
+		content: "\f415";
+	}
+	&.mdi-delete:before{
+		content: "\f1c0";
+	}
+	&.mdi-wechat:before{
+		content: "\f611";
+	}
+	&.mdi-qrcode:before{
+		content: "\f432";	
+	}
+	&.mdi-qqchat:before{
+		content: "\f605";
+	}
+	&.mdi-gmail:before{
+		content: "\f2ab";
+	}
+	&.mdi-github-circle:before{
+		content: "\f2a4";
+	}
+	&.mdi-tag-heart:before{
+		content: "\f68a";
+	}
+	&.mdi-close-circle:before{
+		content: "\f159";
+	}
+	&.mdi-fire:before{
+		content: "\f238";
+	}
+	&.mid-google:before{
+		content: "\f2ad";
+	}
+	&.mdi-facebook-box:before{
+		content: "\f20d";
+	}
+	&.mdi-linkedin-box:before{
+		content: "\f33c";
+	}
+	&.mdi-emoticon-happy:before{
+		content: "\f1f5";
+	}
+	&.mdi-close-circle-outline:before{
+		content: "\f15a";
+	}
+}
+
+/* --------- /Scrollbar --------- */
+::-webkit-scrollbar{width:2px;height:2px}
+::-webkit-scrollbar-button:vertical{display:none}
+::-webkit-scrollbar-track:vertical{background-color:transparent;}
+::-webkit-scrollbar-track-piece{background-color:transparent;}
+::-webkit-scrollbar-thumb:vertical{background-color:@color-Cyan-base;border-radius:2px}
+::-webkit-scrollbar-thumb:vertical:hover,
+::-webkit-scrollbar-thumb:vertical:active {background-color: @color-Cyan-7}
+/* --------- /Scrollbar --------- */
