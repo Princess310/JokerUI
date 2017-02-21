@@ -1,41 +1,9 @@
-@import '../styles/mixins.less';
-@import '../styles/transition-group.less';
-@import '../styles/func.less';
-@import '../styles/animation.less';
-
 @font-face {
 	font-family: "Material Design Icons";
 	src: url("../fonts/materialdesignicons-webfont.eot");
 	src: url("../fonts/materialdesignicons-webfont.eot") format("embedded-opentype"), url("../fonts/materialdesignicons-webfont.woff2") format("woff2"), url("../fonts/materialdesignicons-webfont.woff") format("woff"), url("../fonts/materialdesignicons-webfont.ttf") format("truetype"), url("../fonts/materialdesignicons-webfont.svg") format("svg");
 	font-weight: normal;
 	font-style: normal;
-}
-
-@font-face {
-	font-family: "Roboto-Medium";
-	src: url("../fonts/Roboto-Medium.ttf");
-	font-weight: normal;
-	font-style: normal;
-}
-
-* {
-	font-family: "Roboto-Medium";
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-.cn{
-	font-family: "微软雅黑";
-}
-
-html, body, #app {
-	height: 100%;
-	width: 100%;
-}
-
-a {
-	text-decoration: none;
 }
 
 .mdi {
@@ -105,13 +73,3 @@ a {
 		content: "\f15a";
 	}
 }
-
-/* --------- /Scrollbar --------- */
-::-webkit-scrollbar{width:2px;height:2px}
-::-webkit-scrollbar-button:vertical{display:none}
-::-webkit-scrollbar-track:vertical{background-color:transparent;}
-::-webkit-scrollbar-track-piece{background-color:transparent;}
-::-webkit-scrollbar-thumb:vertical{background-color:@color-Cyan-base;border-radius:2px}
-::-webkit-scrollbar-thumb:vertical:hover,
-::-webkit-scrollbar-thumb:vertical:active {background-color: @color-Cyan-7}
-/* --------- /Scrollbar --------- */

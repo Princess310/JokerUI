@@ -1,0 +1,20 @@
+/* -------- Position ------- */
+//	Position func
+/* -------------------------- */
+.fitparent(@value) when (length(@value) = 4){
+	position: absolute;
+	top: extract(@value,1); right: extract(@value,2); bottom: extract(@value,3); left: extract(@value,4);
+}
+.fitparent(@value) when (length(@value) = 3){
+	.fitparent(extract(@value,1) extract(@value,2) extract(@value,3) extract(@value,3))
+}
+.fitparent(@value) when (length(@value) = 2){
+	.fitparent(extract(@value,1) extract(@value,2) extract(@value,1) extract(@value,2))
+}
+.fitparent(@value) when (length(@value) = 1){
+	.fitparent(extract(@value,1) extract(@value,1) extract(@value,1) extract(@value,1))
+}
+.fitparent(){
+	.fitparent(0 0 0 0);
+}
+/* -------- /Position ------- */
