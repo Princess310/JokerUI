@@ -1,4 +1,5 @@
 import defaultTheme from './baseThemes/defaultTheme';
+import { fade } from '../../utils/colorManipulator';
 
 export default function getUiThem(uiTheme, ...args) {
 	const { palette } = defaultTheme;
@@ -7,8 +8,27 @@ export default function getUiThem(uiTheme, ...args) {
 		fontIcon: {
 			defaultColor: palette.blackPalette.dark,
 			fontSize: '24px'
-		}
+		},
+		ripple: {
+			color: palette.blackPalette.dark,
+		},
+		enhancedButton: {
+			tapHighlightColor: palette.transparent,
+		},
+		paper: {
+			color: palette.blackPalette.dark,
+			backGroundColor: palette.whitePalette.full,
+			zDepthShadows: [
+				[1, 6, 0.12, 1, 4, 0.24],
+				[3, 10, 0.16, 3, 10, 0.23],
+				[10, 30, 0.19, 6, 10, 0.23],
+				[14, 45, 0.25, 10, 18, 0.22],
+				[19, 60, 0.30, 15, 20, 0.22],
+			].map((d) => (
+				`0 ${d[0]}px ${d[1]}px ${fade(palette.blackPalette.dark, d[2])},
+				0 ${d[3]}px ${d[4]}px ${fade(palette.blackPalette.dark, d[5])}`
+			))
+		},
 	}, defaultTheme, uiTheme, args);
-
 	return uiTheme;
 }
