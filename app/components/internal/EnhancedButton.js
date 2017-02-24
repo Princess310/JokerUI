@@ -64,33 +64,33 @@ class EnhancedButton extends Component {
 		onMouseUp: () => {},
 		onTouchEnd: () => {},
 		onTouchStart: () => {},
-		onTouchTap: () => {},
-		centerRipple: true
+		onTouchTap: () => {}
 	}
 
 	state = { isKeyboardFocused: false }
 
 	handleBlur = (e) => {
-
+		this.props.onBlur(e);
 	}
 
 	handleClick = (e) => {
-		
+		this.props.onClick(e);
 	}
 
 	handleFocus = (e) => {
-		
+		this.props.onFocus(e);
 	}
 
 	handleKeyUp = (e) => {
-		
+		this.props.onKeyUp(e);
 	}
 
 	handleKeyDown = (e) => {
-		
+		this.props.onKeyDown(e);
 	}
 
 	handleTouchTap = (e) => {
+		this.props.onTouchTap(e);
 	}
 
 	createButtonChildren() {

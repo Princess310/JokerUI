@@ -3,6 +3,8 @@ import { indigo, pink } from '../../components/styles/colors';
 import FontIcon from '../../components/FontIcon';
 import Paper from '../../components/Paper';
 import EnhancedButton from '../../components/internal/EnhancedButton';
+import FlatButton from '../../components/FlatButton';
+import MyRipple from '../../components/Test/MyRipple';
 
 export default class Components extends Component {
 	constructor(props) {
@@ -43,6 +45,20 @@ export default class Components extends Component {
 				</ul>
 				<p>所以我们可以先创建一个扁平按钮，然后给它添加浮动效果就成了浮动按钮。</p>
 				<EnhancedButton>EnhancedButton</EnhancedButton>
+
+				<h5>Flat Button</h5>
+				<FlatButton label='Flat Button' />
+				<FlatButton label='Primary Button' primary={true} />
+				<FlatButton label='Secondary Button' secondary={true} />
+				<FlatButton label='Before Label' labelPosition='before' icon={<FontIcon className="mdi mdi-motorbike" />} primary={true} />
+				<FlatButton label='Before Label' labelPosition='after' icon={<FontIcon className="mdi mdi-mouse" style={{color: indigo['200']}} />} secondary={true} />
+				<FlatButton label='Disabled Button' disabled={true} />
+				<p>这里主要借鉴Material UI的思路，确实不错。我也简单实现一下涟漪效果：</p>
+
+				<MyRipple style={{width: 88, height: 36, marginBottom: 24, lineHeight: '36px'}}>My Ripple</MyRipple>
+				<MyRipple />
+
+				<p>这里只画了一个涟漪，但应该清楚了大概原理，就是基于当前元素画一个大于本身高宽的圆，通过过渡伸缩和透明度效果实现。Material UI 则是多个Circle Ripple组件通过组件的装载和卸载实现。</p>
 			</div>
 		)
 	}

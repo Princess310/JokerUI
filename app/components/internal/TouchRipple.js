@@ -23,16 +23,34 @@ class TouchRipple extends Component {
 		children: PropTypes.node,
 		color: PropTypes.string,
 		opacity: PropTypes.number,
+		abortOnScroll: PropTypes.bool,
 	}
 
 	static contextTypes = {
 		uiTheme: PropTypes.object.isRequired,
 	}
 
+	static defaultProps = {
+		abortOnScroll: true,
+	}
+
+	ignoreNextMouseDown = false;
+
 	state = {
 		hasRipples: false,
 		nextKey: 0,
 		ripples: [],
+	}
+
+	startListeningForScrollAbort(e) {
+		this.firstTouchY = event.touches[0].clientY;
+		this.firstTouchX = event.touches[0].clientX;
+
+		document.body.addEventListener('touchmove', this.handleTouchMove);
+	}
+
+	stopListeningForScrollAbort() {
+		document.body.removeEventListener('touchmove', this.handleTouchMove);
 	}
 
 	getRippleStyle(e) {
@@ -72,6 +90,11 @@ class TouchRipple extends Component {
 			opacity
 		} = this.props;
 
+		if (this.ignoreNextMouseDown && !isRippleTouchGenerated) {
+			this.ignoreNextMouseDown = false;
+			return;
+		}
+
 		let ripples = this.state.ripples;
 
 		ripples = [
@@ -86,6 +109,7 @@ class TouchRipple extends Component {
 			)
 		];
 
+		this.ignoreNextMouseDown = isRippleTouchGenerated;
 		this.setState({
 			hasRipples: true,
 			nextKey: this.state.nextKey + 1,
@@ -99,6 +123,10 @@ class TouchRipple extends Component {
 		this.setState({
 			ripples: shift(currentRipples),
 		});
+
+		if (this.props.abortOnScroll) {
+			this.stopListeningForScrollAbort();
+		}
 	}
 
 	handleMouseUp = (e) => {
@@ -118,7 +146,34 @@ class TouchRipple extends Component {
 	handleTouchStart = (e) => {
 		e.stopPropagation();
 
+		if (this.props.abortOnScroll && e.touches) {
+			this.startListeningForScrollAbort(e);
+			this.startTime = Date.now();
+		}
 		this.start(event, true);
+	}
+
+	handleTouchMove = (e) => {
+		const timeSinceStart = Math.abs(Date.now() - this.startTime);
+		if (timeSinceStart > 300) {
+			this.stopListeningForScrollAbort();
+			return;
+		}
+
+		const deltaY = Math.abs(event.touches[0].clientY - this.firstTouchY);
+		const deltaX = Math.abs(event.touches[0].clientX - this.firstTouchX);
+		if (deltaY > 6 || deltaX > 6) {
+			let currentRipples = this.state.ripples;
+			const ripple = currentRipples[0];
+
+			const abortedRipple = React.cloneElement(ripple, {aborted: true});
+			currentRipples = shift(currentRipples);
+			currentRipples = [...currentRipples, abortedRipple];
+
+			this.setState({ripples: currentRipples}, () => {
+				this.end();
+			});
+		}
 	}
 
 	handleTouchEnd = (e) => {

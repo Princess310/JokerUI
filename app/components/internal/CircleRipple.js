@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import shallowEqual from 'recompose/shallowEqual';
-import transitions from '../../styles/transitions';
+import transitions from '../styles/transitions';
 
 class CircleRipple extends Component {
 	static propTypes = {

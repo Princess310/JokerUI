@@ -10,7 +10,7 @@ export default {
 			normal: indigo['500'],
 			deep: indigo['700'],
 		},
-		second: {
+		secondary: {
 			light: pink['A100'],
 			normal: pink['A200'],
 			deep: pink['A400'],

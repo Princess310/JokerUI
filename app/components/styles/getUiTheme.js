@@ -9,6 +9,21 @@ export default function getUiThem(uiTheme, ...args) {
 			defaultColor: palette.blackPalette.dark,
 			fontSize: '24px'
 		},
+		button: {
+			height: 36,
+			minWidth: 88,
+			borderRadius: 2,
+		},
+		flatButton: {
+			buttonFilterColor: '#999999',
+			textColor: palette.blackPalette.dark,
+			primaryTextColor: palette.primary.normal,
+			secondaryTextColor: palette.secondary.light,
+			focusColor: fade(palette.blackPalette.full, 0.12),
+			pressedColor: fade('#999999', 0.4),
+			disabledColor: fade(palette.blackPalette.full, 0.26),
+			backgroundColor: palette.transparent,
+		},
 		ripple: {
 			color: palette.blackPalette.dark,
 		},
@@ -17,7 +32,7 @@ export default function getUiThem(uiTheme, ...args) {
 		},
 		paper: {
 			color: palette.blackPalette.dark,
-			backGroundColor: palette.whitePalette.full,
+			backgroundColor: palette.whitePalette.full,
 			zDepthShadows: [
 				[1, 6, 0.12, 1, 4, 0.24],
 				[3, 10, 0.16, 3, 10, 0.23],
