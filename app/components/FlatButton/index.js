@@ -170,7 +170,7 @@ class FlatButton extends Component {
 				onTouchStart={this.handleTouchStart}
 				style={buttonStyle}
 				touchRippleColor={buttonRippleColor}
-				touchRippleOpacity={0.3}
+				touchRippleOpacity={ (primary || secondary) ? 0.1 : 0.3}
 			>
 				{buttonChildren}
 			</EnhancedButton>

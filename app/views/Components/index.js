@@ -4,6 +4,7 @@ import FontIcon from '../../components/FontIcon';
 import Paper from '../../components/Paper';
 import EnhancedButton from '../../components/internal/EnhancedButton';
 import FlatButton from '../../components/FlatButton';
+import RaisedButton from '../../components/RaisedButton';
 import MyRipple from '../../components/Test/MyRipple';
 
 export default class Components extends Component {
@@ -59,6 +60,16 @@ export default class Components extends Component {
 				<MyRipple />
 
 				<p>这里只画了一个涟漪，但应该清楚了大概原理，就是基于当前元素画一个大于本身高宽的圆，通过过渡伸缩和透明度效果实现。Material UI 则是多个Circle Ripple组件通过组件的装载和卸载实现。</p>
+
+				<h5>Raised Button</h5>
+				<p>这里我看Material UI重写的样式和事件，但我想可以复用Flat Button的代码，只是样式和click事件表现有所不同。</p>
+				<RaisedButton label='Raised Button' style={{margin: 12, width: '200px'}}/>
+				<RaisedButton label='Flat Button' style={{margin: 12, height: '64px'}}/>
+				<RaisedButton label='Primary Button' primary={true} style={{margin: 12}} />
+				<RaisedButton label='Secondary Button' secondary={true} style={{margin: 12}} />
+				<RaisedButton label='Before Label' labelPosition='before' style={{margin: 12}} icon={<FontIcon className="mdi mdi-motorbike" />} primary={true} />
+				<RaisedButton label='Before Label' labelPosition='after' style={{margin: 12}} icon={<FontIcon className="mdi mdi-mouse" />} secondary={true} />
+				<RaisedButton label='Disabled Button' disabled={true} />
 			</div>
 		)
 	}
