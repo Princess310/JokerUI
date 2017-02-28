@@ -18,6 +18,7 @@ class FlatButton extends Component {
 		]),
 		labelStyle: PropTypes.object,
 		rippleColor: PropTypes.string,
+		rippleOpacity: PropTypes.number,
 		// palette primary color
 		primary: PropTypes.bool,
 		// palette second color
@@ -84,6 +85,7 @@ class FlatButton extends Component {
 			primary,
 			secondary,
 			rippleColor,
+			rippleOpacity,
 			style,
 			...other,
 		} = this.props;
@@ -170,7 +172,7 @@ class FlatButton extends Component {
 				onTouchStart={this.handleTouchStart}
 				style={buttonStyle}
 				touchRippleColor={buttonRippleColor}
-				touchRippleOpacity={ (primary || secondary) ? 0.1 : 0.3}
+				touchRippleOpacity={ rippleOpacity || 0.3}
 			>
 				{buttonChildren}
 			</EnhancedButton>

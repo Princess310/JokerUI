@@ -6,6 +6,7 @@ import EnhancedButton from '../../components/internal/EnhancedButton';
 import FlatButton from '../../components/FlatButton';
 import RaisedButton from '../../components/RaisedButton';
 import MyRipple from '../../components/Test/MyRipple';
+import FloatActionButton from '../../components/FloatActionButton';
 
 export default class Components extends Component {
 	constructor(props) {
@@ -70,6 +71,13 @@ export default class Components extends Component {
 				<RaisedButton label='Before Label' labelPosition='before' style={{margin: 12}} icon={<FontIcon className="mdi mdi-motorbike" />} primary={true} />
 				<RaisedButton label='Before Label' labelPosition='after' style={{margin: 12}} icon={<FontIcon className="mdi mdi-mouse" />} secondary={true} />
 				<RaisedButton label='Disabled Button' disabled={true} />
+
+				<h5>Floating Action Button</h5>
+				<p>Floating Action Button的样式和事件和Raised Button差不多一样的，区别就是zDepth不同且表现为圆角样式。</p>
+				<p>但这里再复用Raised Button代码的话，会很多逻辑交织一起，所以还是基于Flat Button写一下，避免耦合。</p>
+				<FloatActionButton label='Float' style={{margin: 12}} />
+				<FloatActionButton icon={<FontIcon className="mdi mdi-mouse" />} style={{margin: 12}} secondary={true} />
+				<FloatActionButton icon={<FontIcon className="mdi mdi-motorbike" />} style={{margin: 12}} disabled={true} />
 			</div>
 		)
 	}

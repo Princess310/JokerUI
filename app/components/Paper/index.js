@@ -26,7 +26,7 @@ class FontIcon extends Component {
 		// set to be circlular paper
 		circle: PropTypes.bool,
 		// z-index of depth to show shadow things
-		zDepth: PropTypes.oneOf([1, 2, 3, 4, 5]),
+		zDepth: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
 		// override the style
 		style: PropTypes.object,
 	}

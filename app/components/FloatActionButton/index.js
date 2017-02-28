@@ -2,13 +2,15 @@ import React, {Component, PropTypes} from 'react';
 import FlatButton from '../FlatButton';
 import Paper from '../Paper';
 
-class RaisedButton extends Component {
+class FloatActionButton extends Component {
 	static propTypes = {
 		backgroundColor: PropTypes.string,
 		children: PropTypes.node,
 		disabled: PropTypes.bool,
 		hoverColor: PropTypes.string,
 		icon: PropTypes.node,
+		// button size to show
+		size: PropTypes.number,
 		// label for button
 		label: PropTypes.string,
 		labelPosition: PropTypes.oneOf([
@@ -44,7 +46,7 @@ class RaisedButton extends Component {
 	}
 
 	state = {
-		zDepth: 1,
+		zDepth: 2,
 		hovered: false,
 		touch: false
 	}
@@ -59,7 +61,7 @@ class RaisedButton extends Component {
 	}
 
 	componentWillMount() {
-		const zDepth = this.props.disabled ? 0 : 1;
+		const zDepth = this.props.disabled ? 0 : 2;
 		this.setState({
 			zDepth: zDepth,
 		});
@@ -67,19 +69,19 @@ class RaisedButton extends Component {
 
 	handleMouseUp = (e) => {
 		this.setState({
-			zDepth: 1,
+			zDepth: 2,
 		});
 	}
 
 	handleMouseDown = (e) => {
 		this.setState({
-			zDepth: 2,
+			zDepth: 3,
 		});
 	}
 
 	handleMouseLeave = (e) => {
 		this.setState({
-			zDepth: 1,
+			zDepth: 2,
 		});
 	}
 
@@ -87,48 +89,58 @@ class RaisedButton extends Component {
 		const {
 			children,
 			style,
+			size,
 			primary,
 			secondary,
 			disabled,
 			rippleColor,
+			labelStyle,
 			...other,
 		} = this.props;
 
 		const {
 			button,
-			raisedButton,
+			FloatActionButton,
 		} = this.context.uiTheme;
 
 		const paperStyle = Object.assign({}, {
 			display: 'inline-block'
 		}, style);
 
-		let backgroundColor = raisedButton.defaultBackgroundColor;
-		let textColor = raisedButton.textColor;
+		let backgroundColor = FloatActionButton.defaultBackgroundColor;
+		let textColor = FloatActionButton.textColor;
 
 		if(disabled){
-			backgroundColor = raisedButton.disabledBackgroundColor;
-			textColor = raisedButton.disabledTextColor;
+			backgroundColor = FloatActionButton.disabledBackgroundColor;
+			textColor = FloatActionButton.disabledTextColor;
 		}else if(primary){
-			backgroundColor = raisedButton.primaryColor;
-			textColor = raisedButton.primaryTextColor;
+			backgroundColor = FloatActionButton.primaryColor;
+			textColor = FloatActionButton.primaryTextColor;
 		}else if(secondary){
-			backgroundColor = raisedButton.secondaryColor;
-			textColor = raisedButton.secondaryTextColor;
+			backgroundColor = FloatActionButton.secondaryColor;
+			textColor = FloatActionButton.secondaryTextColor;
 		}
 
-		const buttonHeight = style && style.height || button.height;
+		const buttonSize = size ? size : FloatActionButton.buttonSize;
 
 		const buttonStyle = {
-			width: '100%',
-			height: buttonHeight,
-			lineHeight: `${buttonHeight}px`,
+			width: buttonSize,
+			height: buttonSize,
+			minWidth: FloatActionButton.miniSize,
+			minHeight: FloatActionButton.miniSize,
+			borderRadius: '50%',
+			lineHeight: `${buttonSize}px`,
 			color: textColor,
 			backgroundColor: backgroundColor,
 		};
 
+		const buttonLabelStyle = Object.assign({
+			paddingLeft: 0,
+			paddingRight: 0,
+		}, labelStyle);
+
 		return (
-			<Paper style={paperStyle} zDepth={this.state.zDepth}>
+			<Paper style={paperStyle} zDepth={this.state.zDepth} circle={true}>
 				<FlatButton
 					rippleColor={rippleColor ? rippleColor : textColor}
 					rippleOpacity={!(primary || secondary) ? 0.1 : 0.16}
@@ -136,8 +148,8 @@ class RaisedButton extends Component {
 					onMouseDown={this.handleMouseDown}
 					onMouseLeave={this.handleMouseLeave}
 					style={buttonStyle}
-					labelStyle={{color: 'red'}} 
 					disabled={disabled}
+					labelStyle={buttonLabelStyle}
 					{...other}
 				>
 					{children}
@@ -147,4 +159,4 @@ class RaisedButton extends Component {
 	}
 }
 
-export default RaisedButton;
+export default FloatActionButton;
