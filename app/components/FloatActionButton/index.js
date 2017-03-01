@@ -100,34 +100,34 @@ class FloatActionButton extends Component {
 
 		const {
 			button,
-			FloatActionButton,
+			floatActionButton,
 		} = this.context.uiTheme;
 
 		const paperStyle = Object.assign({}, {
 			display: 'inline-block'
 		}, style);
 
-		let backgroundColor = FloatActionButton.defaultBackgroundColor;
-		let textColor = FloatActionButton.textColor;
+		let backgroundColor = floatActionButton.defaultBackgroundColor;
+		let textColor = floatActionButton.textColor;
 
 		if(disabled){
-			backgroundColor = FloatActionButton.disabledBackgroundColor;
-			textColor = FloatActionButton.disabledTextColor;
+			backgroundColor = floatActionButton.disabledBackgroundColor;
+			textColor = floatActionButton.disabledTextColor;
 		}else if(primary){
-			backgroundColor = FloatActionButton.primaryColor;
-			textColor = FloatActionButton.primaryTextColor;
+			backgroundColor = floatActionButton.primaryColor;
+			textColor = floatActionButton.primaryTextColor;
 		}else if(secondary){
-			backgroundColor = FloatActionButton.secondaryColor;
-			textColor = FloatActionButton.secondaryTextColor;
+			backgroundColor = floatActionButton.secondaryColor;
+			textColor = floatActionButton.secondaryTextColor;
 		}
 
-		const buttonSize = size ? size : FloatActionButton.buttonSize;
+		const buttonSize = size ? size : floatActionButton.buttonSize;
 
 		const buttonStyle = {
 			width: buttonSize,
 			height: buttonSize,
-			minWidth: FloatActionButton.miniSize,
-			minHeight: FloatActionButton.miniSize,
+			minWidth: floatActionButton.miniSize,
+			minHeight: floatActionButton.miniSize,
 			borderRadius: '50%',
 			lineHeight: `${buttonSize}px`,
 			color: textColor,

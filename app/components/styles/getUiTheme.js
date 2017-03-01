@@ -34,7 +34,7 @@ export default function getUiThem(uiTheme, ...args) {
 			disabledTextColor: fade(palette.blackPalette.full, 0.26),
 			disabledBackgroundColor: palette.blackPalette.faint,
 		},
-		FloatActionButton: {
+		floatActionButton: {
 			buttonSize: 56,
 			miniSize: 40,
 			textColor: palette.blackPalette.dark,
@@ -45,6 +45,12 @@ export default function getUiThem(uiTheme, ...args) {
 			secondaryColor: palette.secondary.light,
 			disabledTextColor: fade(palette.blackPalette.full, 0.26),
 			disabledBackgroundColor: palette.blackPalette.faint,
+		},
+		iconButton: {
+			defaultBackgroundColor: palette.transparent,
+			buttonFilterColor: '#999999',
+			textColor: palette.blackPalette.dark,
+			disabledTextColor: fade(palette.blackPalette.full, 0.26),
 		},
 		ripple: {
 			color: palette.blackPalette.dark,

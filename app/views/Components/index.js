@@ -7,6 +7,7 @@ import FlatButton from '../../components/FlatButton';
 import RaisedButton from '../../components/RaisedButton';
 import MyRipple from '../../components/Test/MyRipple';
 import FloatActionButton from '../../components/FloatActionButton';
+import IconButton from '../../components/IconButton';
 
 export default class Components extends Component {
 	constructor(props) {
@@ -78,6 +79,16 @@ export default class Components extends Component {
 				<FloatActionButton label='Float' style={{margin: 12}} />
 				<FloatActionButton icon={<FontIcon className="mdi mdi-mouse" />} style={{margin: 12}} secondary={true} />
 				<FloatActionButton icon={<FontIcon className="mdi mdi-motorbike" />} style={{margin: 12}} disabled={true} />
+
+				<h5>Icon Button</h5>
+				<p>看Material Design讲Button的时候，还有Toogle Icon Button这样的组件。</p>
+				<p>Material UI实现了Icon Button，加上了Tool Tip，但似乎没有给Icon加上toggle的选择功能。</p>
+				<p>这个我们在实现Font Icon组件的时候提到过active属性，这样，在Icon Button这里我们需要在active的时候加上背景色就可以了。</p>
+				<IconButton iconClassName="mdi mdi-mouse" />
+				<IconButton iconClassName="mdi mdi-chemical-weapon" rippleColor="red"/>
+				<IconButton iconClassName="mdi mdi-motorbike" iconStyle={{color: indigo['500']}}/>
+				<IconButton iconClassName="mdi mdi-motorbike" active={true} iconStyle={{hoverColor: indigo['500']}}/>
+				<IconButton iconClassName="mdi mdi-motorbike" disabled={true}/>
 			</div>
 		)
 	}
