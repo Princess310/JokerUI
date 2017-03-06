@@ -1,5 +1,6 @@
 import defaultTheme from './baseThemes/defaultTheme';
 import { fade } from '../../utils/colorManipulator';
+import zIndex from './zIndex';
 
 export default function getUiThem(uiTheme, ...args) {
 	const { palette } = defaultTheme;
@@ -72,6 +73,11 @@ export default function getUiThem(uiTheme, ...args) {
 				0 ${d[3]}px ${d[4]}px ${fade(palette.blackPalette.dark, d[5])}`
 			))
 		},
+		toolTip: {
+			color: palette.whitePalette.full,
+			rippleBackgroundColor: palette.grey['700'],
+		},
+		zIndex: zIndex,
 	}, defaultTheme, uiTheme, args);
 	return uiTheme;
 }

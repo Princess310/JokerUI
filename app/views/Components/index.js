@@ -8,6 +8,7 @@ import RaisedButton from '../../components/RaisedButton';
 import MyRipple from '../../components/Test/MyRipple';
 import FloatActionButton from '../../components/FloatActionButton';
 import IconButton from '../../components/IconButton';
+import ToolTip from '../../components/ToolTip';
 
 export default class Components extends Component {
 	constructor(props) {
@@ -89,6 +90,26 @@ export default class Components extends Component {
 				<IconButton iconClassName="mdi mdi-motorbike" iconStyle={{color: indigo['500']}}/>
 				<IconButton iconClassName="mdi mdi-motorbike" active={true} iconStyle={{hoverColor: indigo['500']}}/>
 				<IconButton iconClassName="mdi mdi-motorbike" disabled={true}/>
+
+				<h5>Tool Tip</h5>
+				<p>看了下Material UI的Tool Tip，发现它主要用来加载在Icon Button和Table Header上面，用的时候就只能在这2个组件上面用。</p>
+				<p>所以我想把Tool Tip放出来，让需要用到的组件能够直接作为外层使用。</p>
+				<IconButton iconClassName="mdi mdi-mouse">
+					<ToolTip label="Label here~" />
+				</IconButton>
+				<IconButton iconClassName="mdi mdi-mouse">
+					<ToolTip label="Left-Top" horizontalPosition="left" verticalPosition="top"/>
+				</IconButton>
+				<IconButton iconClassName="mdi mdi-mouse">
+					<ToolTip label="Right-Top" horizontalPosition="right" verticalPosition="top"/>
+				</IconButton>
+				<IconButton iconClassName="mdi mdi-mouse">
+					<ToolTip label="Label here~" verticalPosition="bottom"/>
+				</IconButton>
+				<IconButton iconClassName="mdi mdi-mouse">
+					<ToolTip label="Label here~" show={true}/>
+				</IconButton>
+				<p>借鉴了Material UI，但相比较扩展了功能，这样就可以直接将Tool Tip作为子节点插入任意组件里面，不用自己再去写交互逻辑了。（不过这里要确保父组件的overflow属性是可见的才行!）</p>
 			</div>
 		)
 	}

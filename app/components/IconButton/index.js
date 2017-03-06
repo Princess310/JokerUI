@@ -74,7 +74,6 @@ class IconButton extends Component {
 			transition: transitions.easeOut(),
 			borderRadius: '50%',
 			userSelect: 'none',
-			overflow: 'hidden',
 			padding: 10,
 			margin: 0,
 			textAlign: 'center',
@@ -88,7 +87,7 @@ class IconButton extends Component {
 					hoverColor={hoverColor}
 					style={
 						Object.assign({}, {
-							color: disabled ? (hoverColor ? hoverColor: iconButton.disabledTextColor) : (active ? hoverColor : color)
+							color: disabled ? iconButton.disabledTextColor : (active ? hoverColor : color)
 						}, otherIconStyle)
 					}
 					active={active}

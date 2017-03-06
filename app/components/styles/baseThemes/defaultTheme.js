@@ -1,7 +1,7 @@
 /**
  * Default Theme for UI: Make Sure All the theme color things defined here.
  */
-import { indigo, pink, blackPalette, whitePalette, black, white, transparent } from '../colors';
+import { indigo, pink, grey, blackPalette, whitePalette, black, white, transparent } from '../colors';
 
 export default {
 	palette: {
@@ -15,6 +15,7 @@ export default {
 			normal: pink['A200'],
 			deep: pink['A400'],
 		},
+		grey: grey,
 		accent: pink['A200'],
 		blackPalette, whitePalette,
 		black, white, transparent
