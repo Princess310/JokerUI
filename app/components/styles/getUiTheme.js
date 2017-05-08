@@ -77,6 +77,16 @@ export default function getUiThem(uiTheme, ...args) {
 			color: palette.whitePalette.full,
 			rippleBackgroundColor: palette.grey['700'],
 		},
+		textField: {
+			floatingLabelColor: palette.blackPalette.full,
+			textColor: palette.black,
+			disabledColor: palette.disabledColor,
+			focusColor: palette.primary.normal,
+			hintColor: palette.disabledColor,
+			errorColor: palette.red[500],
+			backgroundColor: 'transparent',
+			borderColor: palette.borderColor,
+		},
 		zIndex: zIndex,
 	}, defaultTheme, uiTheme, args);
 	return uiTheme;

@@ -105,6 +105,7 @@ class IconButton extends Component {
 					right: '0',
 					bottom: '0',
 					left: '0',
+					borderRadius: '50%',
 					backgroundColor: fade(buttonRippleColor, 0.3),
 				}} />
 			);

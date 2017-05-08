@@ -42,7 +42,7 @@ class MyRipple extends Component {
 	}
 
 	handleMouseMove = (e) => {
-		
+
 	}
 
 	handleMouseLeave = (e) => {
@@ -73,7 +73,7 @@ class MyRipple extends Component {
 			opacity: 0.1,
 			transition: 'transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 2s cubic-bezier(0.23, 1, 0.32, 1)',
 		};
-		
+
 		const rippleElement = (
 			<div
 				ref={(ref) => this._ripple = ref}

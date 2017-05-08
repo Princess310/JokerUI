@@ -9,6 +9,7 @@ import MyRipple from '../../components/Test/MyRipple';
 import FloatActionButton from '../../components/FloatActionButton';
 import IconButton from '../../components/IconButton';
 import ToolTip from '../../components/ToolTip';
+import TextField from '../../components/TextField';
 
 export default class Components extends Component {
 	constructor(props) {
@@ -106,10 +107,18 @@ export default class Components extends Component {
 				<IconButton iconClassName="mdi mdi-mouse">
 					<ToolTip label="Label here~" verticalPosition="bottom"/>
 				</IconButton>
-				<IconButton iconClassName="mdi mdi-mouse">
-					<ToolTip label="Label here~" show={true}/>
-				</IconButton>
 				<p>借鉴了Material UI，但相比较扩展了功能，这样就可以直接将Tool Tip作为子节点插入任意组件里面，不用自己再去写交互逻辑了。（不过这里要确保父组件的overflow属性是可见的才行!）</p>
+
+				<h5>Text Field</h5>
+				<p>TextFeild，输入框有类型，标签，禁用状态这些。Material UI提供了更多的可扩展性，但我们这里主要提供对标签，禁用和类型做扩展。</p>
+				<TextField placeholder='Text Input' />
+				<TextField placeholder='Text Input Disabled' disabled={true} />
+
+				<h5>Card</h5>
+				<p>卡片是通往更详细复杂信息的入口，卡片也是一个包含各种信息的集合体，列如文字，图片，按钮，链接，视频等等。</p>
+				<p>看了下Material Design，Card的用途和展现形式很多，作为组件也只能在使用的时候更方便组成需要的UI界面，不能全部都设计完整。</p>
+				<p>Material UI 里面，主要提供了Header,Media,Title,Actions和expandable这几个组件。右上角的按钮主要用来控制显示的。</p>
+				<p>这里我觉得Card右上角的按钮需要提供功能组件，还有就是布局显示上，很可能出现右侧出现图片或者左右布局的场景，这样使用的时候也会非常方便。</p>
 			</div>
 		)
 	}
